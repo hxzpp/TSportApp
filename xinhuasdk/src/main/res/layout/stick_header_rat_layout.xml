@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sticky_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_30"
+    android:background="@color/main_activity_bg"
+    android:gravity="center_vertical"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/tv_sticky_header_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:text="更多>"
+        android:textColor="@color/tab_text_focus"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_sticky_header_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/tv_sticky_header_more"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="文本"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+</RelativeLayout>

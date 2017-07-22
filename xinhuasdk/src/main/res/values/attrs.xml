@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PullZoomView">
+        <attr name="pzv_sensitive" format="float" />
+        <attr name="pzv_isZoomEnable" format="boolean" />
+        <attr name="pzv_isParallax" format="boolean" />
+        <attr name="pzv_zoomTime" format="integer" />
+    </declare-styleable>
+    
+    <declare-styleable name="ViewPagerTabs">
+
+        <attr
+            name="vp_backgroundColor"
+            format="color" />
+        <attr
+            name="vp_backgroundColorPressed"
+            format="color" />
+        <attr
+            name="vp_textColor"
+            format="color" />
+        <attr
+            name="vp_textColorCenter"
+            format="color" />
+        <attr
+            name="vp_lineColorCenter"
+            format="color" />
+        <attr
+            name="vp_lineHeight"
+            format="dimension" />
+        <attr
+            name="vp_tabPaddingLeft"
+            format="dimension" />
+        <attr
+            name="vp_tabPaddingTop"
+            format="dimension" />
+        <attr
+            name="vp_tabPaddingRight"
+            format="dimension" />
+        <attr
+            name="vp_tabPaddingBottom"
+            format="dimension" />
+        <attr
+            name="vp_textSize"
+            format="dimension" />
+        <attr
+            name="vp_outsideOffset"
+            format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ImgBtnWithTxt">
+        <attr name="imgBtnTxtSize" format="float"></attr>
+        <attr name="imgBtnTxtColor" format="color"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="SwipeMenu">
+        <attr name="sml_scroller_duration" format="integer" />
+        <attr name="sml_auto_open_percent" format="float"/>
+        <attr name="sml_scroller_interpolator" format="reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="FlowLayout">
+        <attr name="horizontalSpacing" format="dimension"/>
+        <attr name="verticalSpacing" format="dimension"/>
+        <attr name="orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="debugDraw" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_LayoutParams">
+        <attr name="layout_newLine" format="boolean"/>
+        <attr name="layout_horizontalSpacing" format="dimension"/>
+        <attr name="layout_verticalSpacing" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ImageIndicatorView">
+        <attr name="widget_imgindicator_rationwh" format="float" />
+        <attr name="widget_imgindicator_pointWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RollingTextView">
+        <attr name="widget_rollingtextview_textcolor" format="color" />
+        <attr name="widget_rollingtextview_textsize" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="BaseHorizontalScrollView">
+        <attr name="hs_isscrollable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ConvenientBanner">
+        <attr name="canLoop" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension"/>
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference"/>
+        <attr name="shadow_right" format="reference"/>
+        <attr name="shadow_bottom" format="reference"/>
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference"/>
+
+    <declare-styleable name="AdjustTextView"><attr format="dimension" name="oscMinTextSize"/></declare-styleable>
+
+</resources>

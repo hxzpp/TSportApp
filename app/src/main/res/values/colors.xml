@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#24cf5f</color>
+    <color name="colorPrimaryDark">#24cf5f</color>
+    <color name="colorAccent">#24cf5f</color>
+
+    <!--  通用文字的颜色（加亮） -->
+    <color name="app_text_focus">@color/colorPrimary</color>
+    <color name="app_text_primary">#121212</color>
+    <color name="app_text_second">#878787</color>
+
+</resources>

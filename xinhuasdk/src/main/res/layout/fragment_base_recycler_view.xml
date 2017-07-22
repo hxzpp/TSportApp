@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnDeleteCollection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:text="删除(0)"
+        android:textColor="@color/tab_text_normal"
+        android:textSize="@dimen/font_18"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/llRecommendBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btnDeleteCollection">
+
+        <TextView
+            android:id="@+id/tvRecommendTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E4ECF2"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp"
+            android:visibility="gone" />
+
+        <com.xinhuamm.xinhuasdk.widget.refresh_recyclerview.RefreshRecyclerView
+            android:id="@+id/refreshRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tvRecommendTips" />
+
+        <include layout="@layout/stick_header_rat_layout" />
+
+        <FrameLayout
+            android:id="@+id/bottom_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

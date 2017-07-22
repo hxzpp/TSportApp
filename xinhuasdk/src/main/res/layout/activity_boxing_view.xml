@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (C) 2017 Bilibili
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~          http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/image_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/boxing_black1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/nav_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionBarSize"
+            android:elevation="2dp"
+            app:theme="@style/Boxing.ToolbarThemeDark">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textAppearance="@style/Boxing.TextAppearance.App.Medium" />
+        </android.support.v7.widget.Toolbar>
+
+        <com.xinhuamm.xinhuasdk.bilibili.boxing_impl.view.HackyViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <com.xinhuamm.xinhuasdk.widget.load.Loading
+        android:id="@+id/loading"
+        android:layout_width="26dip"
+        android:layout_height="26dip"
+        android:layout_centerInParent="true"
+        app:gForegroundColor="?attr/colorPrimary" />
+
+
+    <Button
+        android:id="@+id/image_items_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/boxing_item_spacing"
+        android:layout_marginBottom="@dimen/lay_10"
+        android:background="@drawable/selector_boxing_btn_solid"
+        android:minWidth="60dp"
+        android:paddingLeft="@dimen/boxing_item_half_spacing"
+        android:paddingRight="@dimen/boxing_item_half_spacing"
+        android:text="@string/boxing_ok"
+        android:textColor="@color/boxing_white" />
+</RelativeLayout>

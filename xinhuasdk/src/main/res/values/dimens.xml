@@ -1,0 +1,42 @@
+<resources>
+    <dimen name="actionBarSize">45dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="phone_title_maxwidth">210dp</dimen>
+    <dimen name="title_gradient_height">6dp</dimen>
+
+    <dimen name="comment_popwindow_height">40dp</dimen>
+    <dimen name="comment_popwindow_width_per">65dp</dimen>
+
+	
+	 <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="tag_horizontal_spacing">15.0dip</dimen>
+    <dimen name="tag_vertical_spacing">15.0dp</dimen>
+
+    <dimen name="image_indicator_title_height">30dp</dimen>
+
+    <!-- 标签 属性 -->
+    <dimen name="tag_stroke_width">1dp</dimen>
+    <dimen name="tag_corner_radius">5dp</dimen>
+
+    <dimen name="g_loading_maxSize">40dp</dimen>
+    <dimen name="g_loading_minSize">28dp</dimen>
+
+
+    <!-- bilibili boxing start -->
+    <dimen name="boxing_activity_horizontal_margin">16dp</dimen>
+    <dimen name="boxing_activity_vertical_margin">16dp</dimen>
+
+    <dimen name="boxing_text_size_xlarge">16sp</dimen>
+    <dimen name="boxing_text_size_large">14sp</dimen>
+    <dimen name="boxing_text_size_medium">12sp</dimen>
+    <dimen name="boxing_text_size_small">10sp</dimen>
+
+    <dimen name="boxing_item_spacing">5dp</dimen>
+    <dimen name="boxing_item_half_spacing">4dp</dimen>
+    <dimen name="boxing_media_margin">2dp</dimen>
+    <dimen name="boxing_corner_radius">2dp</dimen>
+    <!-- bilibili boxing end -->
+	
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color">
+
+    <com.xinhuamm.xinhuasdk.widget.titlebar.TitleBar
+        android:id="@+id/nav_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize" />
+
+    <ViewStub
+        android:id="@+id/lay_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/nav_title_bar" />
+
+    <View
+        android:id="@+id/view_gradient_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_gradient_height"
+        android:layout_below="@id/nav_title_bar"
+        android:background="@drawable/title_gradient_bg" />
+
+    <com.xinhuamm.xinhuasdk.widget.EmptyLayout
+        android:id="@+id/error_empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/nav_title_bar"
+        android:visibility="gone" />
+
+</RelativeLayout>
