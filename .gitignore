@@ -57,6 +57,3 @@ freeline/
 freeline_project_description.json
 
 /.idea/
-/app/app.iml
-!/TSportApp.iml
-!/local.properties
