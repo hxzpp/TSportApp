@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="rxerrorhandler-2.0.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/61a88960b243414139473d3778648b8af9b4a143/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/61a88960b243414139473d3778648b8af9b4a143/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.jessyan/rxerrorhandler/2.0.2/ee36f057d9089846cdfdb61f4000c19c5d96f57b/rxerrorhandler-2.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
