@@ -83,7 +83,6 @@ public abstract class HBaseFragment<P extends IPresenter> extends RxFragment imp
 
     protected void onBindViewBefore(View root) {
 
-
     }
 
     protected abstract int getLayoutId();

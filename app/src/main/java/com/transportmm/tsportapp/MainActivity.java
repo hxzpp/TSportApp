@@ -1,5 +1,6 @@
 package com.transportmm.tsportapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.SystemClock;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.transportmm.tsportapp.mvp.ui.search.activity.SearchActivity;
 import com.xinhuamm.xinhuasdk.base.activity.HBaseActivity;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 
@@ -164,6 +166,9 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+            Intent intent =new Intent(this, SearchActivity.class);
+            startActivity(intent);
 
         }
 
