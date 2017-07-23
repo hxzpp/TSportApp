@@ -1,15 +1,14 @@
-package com.transportmm.tsportapp.mvp.ui.main.fragment;
+package com.transportmm.tsportapp.mvp.ui.good.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.transportmm.tsportapp.R;
-import com.transportmm.tsportapp.di.component.DaggerHomeComponent;
-import com.transportmm.tsportapp.di.module.HomeModule;
-import com.transportmm.tsportapp.mvp.contract.HomeContract;
-import com.transportmm.tsportapp.mvp.presenter.HomePresenter;
-import com.transportmm.tsportapp.mvp.ui.good.activity.GoodsInOutActivity;
+import com.transportmm.tsportapp.di.component.DaggerGoodsInOutComponent;
+import com.transportmm.tsportapp.di.module.GoodsInOutModule;
+import com.transportmm.tsportapp.mvp.contract.GoodsInOutContract;
+import com.transportmm.tsportapp.mvp.presenter.GoodsInOutPresenter;
 import com.xinhuamm.xinhuasdk.base.fragment.HBaseFragment;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.utils.UiUtils;
@@ -26,25 +25,30 @@ import static com.xinhuamm.xinhuasdk.utils.Preconditions.checkNotNull;
  */
 
 /**
- * Created by bill on 17/7/22.
+ * Created by bill on 17/7/23.
  */
 
-public class HomeFragment extends HBaseFragment<HomePresenter> implements HomeContract.View {
+public class GoodsInOutFragment extends HBaseFragment<GoodsInOutPresenter> implements GoodsInOutContract.View {
 
+
+    public static GoodsInOutFragment newInstance() {
+        GoodsInOutFragment fragment = new GoodsInOutFragment();
+        return fragment;
+    }
 
     @Override
     public void setupFragmentComponent(AppComponent appComponent) {
-        DaggerHomeComponent
+        DaggerGoodsInOutComponent
                 .builder()
                 .appComponent(appComponent)
-                .homeModule(new HomeModule(this))//请将HomeModule()第一个首字母改为小写
+                .goodsInOutModule(new GoodsInOutModule(this))//请将GoodsInOutModule()第一个首字母改为小写
                 .build()
                 .inject(this);
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_goods_inout;
     }
 
     @Override
@@ -55,8 +59,6 @@ public class HomeFragment extends HBaseFragment<HomePresenter> implements HomeCo
     @Override
     public void initWidget(Bundle savedInstanceState) {
         super.initWidget(savedInstanceState);
-        findViewById(R.id.btn).setOnClickListener(v->
-                launchActivity(new Intent(mContext, GoodsInOutActivity.class)));
     }
 
     @Override
@@ -108,6 +110,5 @@ public class HomeFragment extends HBaseFragment<HomePresenter> implements HomeCo
     public void killMyself() {
 
     }
-
 
 }
