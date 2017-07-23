@@ -8,5 +8,6 @@
     <color name="app_text_focus">@color/colorPrimary</color>
     <color name="app_text_primary">#121212</color>
     <color name="app_text_second">#878787</color>
-
+    <!--  通用背景的颜色 -->
+    <color name="main_bg_color">#fff7f9f9</color>
 </resources>

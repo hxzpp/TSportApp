@@ -1,5 +1,6 @@
 package com.transportmm.tsportapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.SystemClock;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.transportmm.tsportapp.mvp.ui.search.activity.SearchActivity;
 import com.xinhuamm.xinhuasdk.base.activity.HBaseActivity;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 
@@ -102,7 +104,11 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
             toggle.syncState();
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new MainFragment()).commitAllowingStateLoss();
+        //以下代码可以处理内存被杀时，fragment恢复的问题，不至于多建几个fragment
+        mFragment = findFragment(MainFragment.class.getName());
+        if (mFragment == null) {
+            addFragment(R.id.fragment_content, new MainFragment(), MainFragment.class.getName());
+        }
     }
 
     @Override
@@ -114,7 +120,6 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("hx", "onResume");
     }
 
     @Override
@@ -164,6 +169,9 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
 
         }
 

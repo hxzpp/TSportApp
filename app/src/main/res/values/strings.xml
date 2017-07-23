@@ -9,5 +9,11 @@
     <string name="title_manage">管理</string>
     <string name="title_my">我的</string>
 
+
+    <!--账户管理模块-->
+    <string name="login">登录</string>
+    <string name="account">账户</string>
+    <string name="password">密码</string>
+
     <string name="tip_double_click_exit">再次点击退出程序</string>
 </resources>

@@ -25,4 +25,9 @@ public class ManageFragment extends HBaseFragment {
     public void setData(Object data) {
 
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }
