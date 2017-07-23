@@ -1,16 +1,11 @@
 package com.transportmm.tsportapp.mvp.ui.account.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
-import com.transportmm.tsportapp.mvp.contract.LoginContract;
-import com.transportmm.tsportapp.mvp.presenter.LoginPresenter;
+import com.transportmm.tsportapp.R;
+import com.transportmm.tsportapp.mvp.ui.account.fragment.LoginFragment;
 import com.xinhuamm.xinhuasdk.base.activity.HBaseActivity;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
-import com.xinhuamm.xinhuasdk.utils.UiUtils;
-
-import static com.xinhuamm.xinhuasdk.utils.Preconditions.checkNotNull;
 
 
 /**
@@ -26,8 +21,7 @@ import static com.xinhuamm.xinhuasdk.utils.Preconditions.checkNotNull;
  * Created by bill on 17/7/22.
  */
 
-public class LoginActivity extends HBaseActivity<LoginPresenter> implements LoginContract.View {
-
+public class LoginActivity extends HBaseActivity {
 
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
@@ -40,7 +34,7 @@ public class LoginActivity extends HBaseActivity<LoginPresenter> implements Logi
 
     @Override
     protected int getContentView() {
-        return 0;
+        return R.layout.activity_login;
     }
 
     @Override
@@ -51,35 +45,11 @@ public class LoginActivity extends HBaseActivity<LoginPresenter> implements Logi
     @Override
     public void initData(Bundle savedInstanceState) {
         super.initData(savedInstanceState);
+
+        //以下代码可以处理内存被杀时，fragment恢复的问题，不至于多建几个fragment
+        mFragment = findFragment(LoginFragment.class.getName());
+        if (mFragment == null) {
+            addFragment(R.id.fragment_login,LoginFragment.newInstance(),LoginFragment.class.getName());
+        }
     }
-
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showMessage(@NonNull String message) {
-        checkNotNull(message);
-        UiUtils.snackbarText(message);
-    }
-
-    @Override
-    public void launchActivity(@NonNull Intent intent) {
-        checkNotNull(intent);
-        UiUtils.startActivity(intent);
-    }
-
-    @Override
-    public void killMyself() {
-        finish();
-    }
-
-
 }

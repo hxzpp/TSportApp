@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".mvp.ui.search.activity.SearchActivity"
-            android:exported="false" />
+        <activity android:name=".mvp.ui.search.activity.SearchActivity" />
+
+        <activity android:name=".mvp.ui.account.activity.LoginActivity" />
 
     </application>
 

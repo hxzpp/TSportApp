@@ -1,14 +1,13 @@
-package com.transportmm.tsportapp.mvp.ui.account.fragment;
+package com.transportmm.tsportapp.mvp.ui.search.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.transportmm.tsportapp.R;
-import com.transportmm.tsportapp.di.component.DaggerLoginComponent;
-import com.transportmm.tsportapp.di.module.LoginModule;
-import com.transportmm.tsportapp.mvp.contract.LoginContract;
-import com.transportmm.tsportapp.mvp.presenter.LoginPresenter;
+import com.transportmm.tsportapp.di.component.DaggerSearchComponent;
+import com.transportmm.tsportapp.di.module.SearchModule;
+import com.transportmm.tsportapp.mvp.contract.SearchContract;
+import com.transportmm.tsportapp.mvp.presenter.SearchPresenter;
 import com.xinhuamm.xinhuasdk.base.fragment.HBaseFragment;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.utils.UiUtils;
@@ -28,31 +27,36 @@ import static com.xinhuamm.xinhuasdk.utils.Preconditions.checkNotNull;
  * Created by bill on 17/7/22.
  */
 
-public class LoginFragment extends HBaseFragment<LoginPresenter> implements LoginContract.View {
+public class SearchFragment extends HBaseFragment<SearchPresenter> implements SearchContract.View {
 
 
-    public static LoginFragment newInstance() {
-        LoginFragment fragment = new LoginFragment();
+    public static SearchFragment newInstance() {
+        SearchFragment fragment = new SearchFragment();
         return fragment;
     }
 
     @Override
     public void setupFragmentComponent(AppComponent appComponent) {
-        DaggerLoginComponent
+        DaggerSearchComponent
                 .builder()
                 .appComponent(appComponent)
-                .loginModule(new LoginModule(this))//请将LoginModule()第一个首字母改为小写
+                .searchModule(new SearchModule(this))//请将SearchModule()第一个首字母改为小写
                 .build()
                 .inject(this);
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_login;
+    public int getLayoutId() {
+        return 0;
     }
 
     @Override
-    protected void initWidget(Bundle savedInstanceState) {
+    public void initBundle(Bundle bundle) {
+        super.initBundle(bundle);
+    }
+
+    @Override
+    public void initWidget(Bundle savedInstanceState) {
         super.initWidget(savedInstanceState);
     }
 
@@ -105,4 +109,5 @@ public class LoginFragment extends HBaseFragment<LoginPresenter> implements Logi
     public void killMyself() {
 
     }
+
 }

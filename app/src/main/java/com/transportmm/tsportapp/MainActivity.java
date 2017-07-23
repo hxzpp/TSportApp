@@ -104,7 +104,11 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
             toggle.syncState();
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_content, new MainFragment()).commitAllowingStateLoss();
+        //以下代码可以处理内存被杀时，fragment恢复的问题，不至于多建几个fragment
+        mFragment = findFragment(MainFragment.class.getName());
+        if (mFragment == null) {
+            addFragment(R.id.fragment_content, new MainFragment(), MainFragment.class.getName());
+        }
     }
 
     @Override
@@ -116,7 +120,6 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("hx", "onResume");
     }
 
     @Override
@@ -167,7 +170,7 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
 
         } else if (id == R.id.nav_send) {
 
-            Intent intent =new Intent(this, SearchActivity.class);
+            Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
 
         }

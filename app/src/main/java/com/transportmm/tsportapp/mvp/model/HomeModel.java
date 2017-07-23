@@ -1,11 +1,14 @@
-package com.transportmm.tsportapp.di.component;
+package com.transportmm.tsportapp.mvp.model;
 
-import com.transportmm.tsportapp.di.module.SearchModule;
-import com.transportmm.tsportapp.mvp.ui.search.fragment.SearchFragment;
-import com.xinhuamm.xinhuasdk.di.component.AppComponent;
+import android.app.Application;
+
+import com.google.gson.Gson;
+import com.transportmm.tsportapp.mvp.contract.HomeContract;
 import com.xinhuamm.xinhuasdk.di.scope.FragmentScope;
+import com.xinhuamm.xinhuasdk.integration.IRepositoryManager;
+import com.xinhuamm.xinhuasdk.mvp.BaseModel;
 
-import dagger.Component;
+import javax.inject.Inject;
 
 /**
  * 通过Template生成对应页面的MVP和Dagger代码,请注意输入框中输入的名字必须相同
@@ -21,7 +24,22 @@ import dagger.Component;
  */
 
 @FragmentScope
-@Component(modules = SearchModule.class, dependencies = AppComponent.class)
-public interface SearchComponent {
-    void inject(SearchFragment fragment);
+public class HomeModel extends BaseModel implements HomeContract.Model {
+    private Gson mGson;
+    private Application mApplication;
+
+    @Inject
+    public HomeModel(IRepositoryManager repositoryManager, Gson gson, Application application) {
+        super(repositoryManager);
+        this.mGson = gson;
+        this.mApplication = application;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        this.mGson = null;
+        this.mApplication = null;
+    }
+
 }

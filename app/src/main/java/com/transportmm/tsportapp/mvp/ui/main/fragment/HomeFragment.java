@@ -1,13 +1,14 @@
-package com.transportmm.tsportapp.mvp.ui.account.fragment;
+package com.transportmm.tsportapp.mvp.ui.main.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.transportmm.tsportapp.di.component.DaggerSearchComponent;
-import com.transportmm.tsportapp.di.module.SearchModule;
-import com.transportmm.tsportapp.mvp.contract.SearchContract;
-import com.transportmm.tsportapp.mvp.presenter.SearchPresenter;
+import com.transportmm.tsportapp.R;
+import com.transportmm.tsportapp.di.component.DaggerHomeComponent;
+import com.transportmm.tsportapp.di.module.HomeModule;
+import com.transportmm.tsportapp.mvp.contract.HomeContract;
+import com.transportmm.tsportapp.mvp.presenter.HomePresenter;
 import com.xinhuamm.xinhuasdk.base.fragment.HBaseFragment;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.utils.UiUtils;
@@ -27,27 +28,22 @@ import static com.xinhuamm.xinhuasdk.utils.Preconditions.checkNotNull;
  * Created by bill on 17/7/22.
  */
 
-public class SearchFragment extends HBaseFragment<SearchPresenter> implements SearchContract.View {
+public class HomeFragment extends HBaseFragment<HomePresenter> implements HomeContract.View {
 
-
-    public static SearchFragment newInstance() {
-        SearchFragment fragment = new SearchFragment();
-        return fragment;
-    }
 
     @Override
     public void setupFragmentComponent(AppComponent appComponent) {
-        DaggerSearchComponent
+        DaggerHomeComponent
                 .builder()
                 .appComponent(appComponent)
-                .searchModule(new SearchModule(this))//请将SearchModule()第一个首字母改为小写
+                .homeModule(new HomeModule(this))//请将HomeModule()第一个首字母改为小写
                 .build()
                 .inject(this);
     }
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_home;
     }
 
     @Override

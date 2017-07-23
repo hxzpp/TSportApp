@@ -1,7 +1,7 @@
 package com.transportmm.tsportapp.di.component;
 
-import com.transportmm.tsportapp.di.module.SearchModule;
-import com.transportmm.tsportapp.mvp.ui.search.fragment.SearchFragment;
+import com.transportmm.tsportapp.di.module.HomeModule;
+import com.transportmm.tsportapp.mvp.ui.main.fragment.HomeFragment;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.di.scope.FragmentScope;
 
@@ -21,7 +21,7 @@ import dagger.Component;
  */
 
 @FragmentScope
-@Component(modules = SearchModule.class, dependencies = AppComponent.class)
-public interface SearchComponent {
-    void inject(SearchFragment fragment);
+@Component(modules = HomeModule.class, dependencies = AppComponent.class)
+public interface HomeComponent {
+    void inject(HomeFragment fragment);
 }

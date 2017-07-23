@@ -24,6 +24,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.xinhuamm.xinhuasdk.base.Activity.HBaseActivity;
+import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.utils.UiUtils;
 
 
@@ -115,6 +116,7 @@ Name: Component
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
 import com.xinhuamm.xinhuasdk.di.scope.FragmentScope;
+import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 
 import dagger.Component;
 
