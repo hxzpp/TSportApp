@@ -10,4 +10,6 @@
     <color name="app_text_second">#878787</color>
     <!--  通用背景的颜色 -->
     <color name="main_bg_color">#fff7f9f9</color>
+    <!--  通用分割线 -->
+    <color name="common_line">#fff0f0f0</color>
 </resources>

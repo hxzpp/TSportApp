@@ -14,8 +14,57 @@
     <string name="login">登录</string>
     <string name="account">账户</string>
     <string name="password">密码</string>
+    <string name="account_logout">退出登录</string>
+    <string name="account_not_logined">未登录</string>
 
-    <!--首页-->
+    <!--入库单，出库单-->
+    <string name="bill_number">单据号</string>
+    <string name="car_number">车牌号</string>
+    <string name="total_weight">毛重</string>
+    <string name="tare_weight">皮重</string>
+    <string name="net_weight">净重</string>
+    <string name="shipments_company">发货单位</string>
+    <string name="coalmine_name">矿名</string>
+    <string name="variety_specification">品种规格</string>
+    <string name="unit_price">单价</string>
+    <string name="payment_form">付款方式</string>
+    <string name="original_tunnage">原发吨数</string>
+    <string name="total_payment">煤款合计</string>
+    <string name="freight_unit_price">运费单价</string>
+    <string name="issuing_fees">代发费</string>
+    <string name="issuing_fees_total">代发费合计</string>
+    <string name="weighing_fees">过磅费</string>
+    <string name="unload_fees">卸车费</string>
+    <string name="other_fees">其他费用</string>
+    <string name="remark">备注</string>
+    <string name="loss_range">亏损范围</string>
+    <string name="beyond_loss_unit_price">超出范围扣款单价</string>
+    <string name="actual_loss">实际亏损</string>
+    <string name="beyond_price">超出数额</string>
+    <string name="deduct_fees">扣款</string>
+    <string name="other_deduct_fees">其他扣款</string>
+    <string name="wipe_setting">抹零设置</string>
+    <string name="actual_freight">实付运费</string>
+    <string name="freight_clear_unit">运费结算单位</string>
+    <string name="full_car">整车</string>
+    <string name="tonne_unit_price">吨单价</string>
+    <string name="take_cash">收取现金</string>
+    <string name="deduct_from_freight">从运费中扣除</string>
+    <!--付款方式-->
+    <string name="ali_pay">支付宝</string>
+    <string name="wechat_pay">微信支付</string>
+    <string name="cash_pay">现金支付</string>
+    <string name="check">支票</string>
+    <string name="acceptance_draft">承兑汇票</string>
+    <string name="bank_transfer">银行转账</string>
 
+    <string name="date">日期</string>
+
+    <string name="about_us">关于我们</string>
+
+
+    <string name="edit">编辑</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
     <string name="tip_double_click_exit">再次点击退出程序</string>
 </resources>
