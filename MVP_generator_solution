@@ -19,11 +19,12 @@ Name: Activity
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
-import com.xinhuamm.xinhuasdk.base.Activity.HBaseActivity;
+import com.xinhuamm.xinhuasdk.base.activity.HBaseActivity;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.utils.UiUtils;
 
@@ -71,7 +72,12 @@ public class ${NAME}Activity extends HBaseActivity<${NAME}Presenter> implements 
 
     @Override
     public void initData(Bundle savedInstanceState) {
-
+        //以下代码可以处理内存被杀时，fragment恢复的问题，不至于多建几个fragment.
+        //fragment_login改成你自己取的变量
+        mFragment = findFragment(${NAME}Fragment.class.getName());
+        if (mFragment == null) {
+            addFragment(R.id.fragment_login,${NAME}Fragment.newInstance(),${NAME}Fragment.class.getName());
+        }
     }
 
 

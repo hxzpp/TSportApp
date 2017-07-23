@@ -25,6 +25,8 @@
 
         <activity android:name=".mvp.ui.account.activity.LoginActivity" />
 
+        <activity android:name=".mvp.ui.good.activity.GoodsInOutActivity" />
+
     </application>
 
 </manifest>

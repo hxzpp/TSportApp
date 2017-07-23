@@ -11,10 +11,6 @@ import com.xinhuamm.xinhuasdk.base.App;
 
 import org.simple.eventbus.EventBus;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import timber.log.Timber;
-
 /**
  * Created by jess on 29/04/2017 16:12
  * Contact with jess.yan.effort@gmail.com
@@ -24,8 +20,6 @@ public class FragmentDelegateImpl implements FragmentDelegate {
     private FragmentManager mFragmentManager;
     private Fragment mFragment;
     private IFragment iFragment;
-    private Unbinder mUnbinder;
-
 
     public FragmentDelegateImpl(FragmentManager fragmentManager, Fragment fragment) {
         this.mFragmentManager = fragmentManager;
@@ -47,9 +41,6 @@ public class FragmentDelegateImpl implements FragmentDelegate {
 
     @Override
     public void onCreateView(View view, Bundle savedInstanceState) {
-        //绑定到butterknife
-        if (view != null)
-            mUnbinder = ButterKnife.bind(mFragment, view);
     }
 
     @Override
@@ -83,22 +74,12 @@ public class FragmentDelegateImpl implements FragmentDelegate {
 
     @Override
     public void onDestroyView() {
-        if (mUnbinder != null && mUnbinder != mUnbinder.EMPTY) {
-            try {
-                mUnbinder.unbind();
-            } catch (IllegalStateException e) {
-                e.printStackTrace();
-                //fix Bindings already cleared
-                Timber.w("onDestroyView: " + e.getMessage());
-            }
-        }
     }
 
     @Override
     public void onDestroy() {
         if (iFragment != null && iFragment.useEventBus())//如果要使用eventbus请将此方法返回true
             EventBus.getDefault().unregister(mFragment);//注册到事件主线
-        this.mUnbinder = null;
         this.mFragmentManager = null;
         this.mFragment = null;
         this.iFragment = null;
@@ -131,7 +112,6 @@ public class FragmentDelegateImpl implements FragmentDelegate {
         this.mFragmentManager = in.readParcelable(FragmentManager.class.getClassLoader());
         this.mFragment = in.readParcelable(Fragment.class.getClassLoader());
         this.iFragment = in.readParcelable(IFragment.class.getClassLoader());
-        this.mUnbinder = in.readParcelable(Unbinder.class.getClassLoader());
     }
 
     public static final Creator<FragmentDelegateImpl> CREATOR = new Creator<FragmentDelegateImpl>() {

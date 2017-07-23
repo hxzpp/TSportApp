@@ -15,5 +15,7 @@
     <string name="account">账户</string>
     <string name="password">密码</string>
 
+    <!--首页-->
+
     <string name="tip_double_click_exit">再次点击退出程序</string>
 </resources>

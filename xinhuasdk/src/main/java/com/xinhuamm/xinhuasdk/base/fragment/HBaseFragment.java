@@ -3,6 +3,7 @@ package com.xinhuamm.xinhuasdk.base.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,11 @@ public abstract class HBaseFragment<P extends IPresenter> extends RxFragment imp
 
     @Inject
     protected P mPresenter;
+
+    public HBaseFragment() {
+        //必须确保在Fragment实例化时setArguments()
+        setArguments(new Bundle());
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -82,7 +88,6 @@ public abstract class HBaseFragment<P extends IPresenter> extends RxFragment imp
     }
 
     protected void onBindViewBefore(View root) {
-
 
     }
 
@@ -181,12 +186,17 @@ public abstract class HBaseFragment<P extends IPresenter> extends RxFragment imp
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mUnBinder != null)
+        if (mUnBinder != null && mUnBinder != Unbinder.EMPTY)
             mUnBinder.unbind();
         this.mUnBinder = null;
         if (mPresenter != null)
             mPresenter.onDestroy();//释放资源
         this.mPresenter = null;
         mBundle = null;
+    }
+
+
+    protected Fragment findFragment(String fragmentTag) {
+        return getChildFragmentManager().findFragmentByTag(fragmentTag);
     }
 }

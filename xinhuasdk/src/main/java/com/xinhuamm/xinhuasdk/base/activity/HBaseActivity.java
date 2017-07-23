@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -148,5 +149,28 @@ public abstract class HBaseActivity<P extends IPresenter> extends RxAppCompatAct
     public boolean useFragment() {
         return true;
     }
+
+    protected Fragment findFragment(String fragmentTag) {
+        return getSupportFragmentManager().findFragmentByTag(fragmentTag);
+    }
+
+    protected void replaceFragment(int frameLayoutId, Fragment fragment,String fragmentTag) {
+        if (fragment != null && !isFinishing()) {
+            mFragment = fragment;
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(frameLayoutId, fragment, fragmentTag);
+            transaction.commit();
+        }
+    }
+
+    protected void addFragment(int frameLayoutId, Fragment fragment,String fragmentTag) {
+        if (fragment != null && !isFinishing()) {
+            mFragment = fragment;
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(frameLayoutId, fragment, fragmentTag);
+            transaction.commit();
+        }
+    }
+
 
 }
