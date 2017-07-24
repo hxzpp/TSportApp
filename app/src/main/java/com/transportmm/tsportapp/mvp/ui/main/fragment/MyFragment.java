@@ -18,11 +18,11 @@ import com.xinhuamm.xinhuasdk.di.component.AppComponent;
  * Created by bill on 17/7/24.
  */
 
-public class MyFragmentFragment extends HBaseFragment {
+public class MyFragment extends HBaseFragment {
 
 
-    public static MyFragmentFragment newInstance() {
-        MyFragmentFragment fragment = new MyFragmentFragment();
+    public static MyFragment newInstance() {
+        MyFragment fragment = new MyFragment();
         return fragment;
     }
 
