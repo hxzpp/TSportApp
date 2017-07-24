@@ -1,6 +1,5 @@
 package com.transportmm.tsportapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.MenuItem;
 
-import com.transportmm.tsportapp.mvp.ui.account.activity.LoginActivity;
 import com.transportmm.tsportapp.mvp.ui.main.fragment.HomeFragment;
 import com.xinhuamm.xinhuasdk.base.fragment.HBaseFragment;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
@@ -41,7 +39,6 @@ public class MainFragment extends HBaseFragment {
                 case R.id.navigation_manage://
                     return true;
                 case R.id.navigation_my://
-                    startActivity(new Intent(mContext, LoginActivity.class));
                     return true;
             }
             return false;

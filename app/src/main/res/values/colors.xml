@@ -10,4 +10,6 @@
     <color name="app_text_second">#878787</color>
     <!--  通用背景的颜色 -->
     <color name="main_bg_color">#fff7f9f9</color>
+
+    <color name="account_input_bg_color">#33ffffff</color>
 </resources>

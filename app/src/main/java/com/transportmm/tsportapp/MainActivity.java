@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.transportmm.tsportapp.mvp.ui.account.activity.LoginActivity;
 import com.transportmm.tsportapp.mvp.ui.search.activity.SearchActivity;
 import com.xinhuamm.xinhuasdk.base.activity.HBaseActivity;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
@@ -161,7 +162,7 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(this, LoginActivity.class));
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
