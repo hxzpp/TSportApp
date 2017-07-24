@@ -12,4 +12,8 @@
     <color name="main_bg_color">#fff7f9f9</color>
     <!--  通用分割线 -->
     <color name="common_line">#fff0f0f0</color>
+
+    <color name="main_focus_color">@color/colorPrimary</color>
+    <color name="main_pressure_color">@color/green</color>
+    <color name="account_input_bg_color">#33ffffff</color>
 </resources>

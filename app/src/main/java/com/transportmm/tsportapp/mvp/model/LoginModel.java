@@ -4,11 +4,23 @@ import android.app.Application;
 
 import com.google.gson.Gson;
 import com.transportmm.tsportapp.mvp.contract.LoginContract;
+import com.transportmm.tsportapp.mvp.model.api.cache.CommonCache;
+import com.transportmm.tsportapp.mvp.model.api.service.UserService;
+import com.transportmm.tsportapp.mvp.model.entity.BaseResult;
+import com.transportmm.tsportapp.mvp.model.entity.User;
 import com.xinhuamm.xinhuasdk.di.scope.FragmentScope;
 import com.xinhuamm.xinhuasdk.integration.IRepositoryManager;
 import com.xinhuamm.xinhuasdk.mvp.BaseModel;
 
 import javax.inject.Inject;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Function;
+import io.rx_cache2.DynamicKey;
+import io.rx_cache2.EvictDynamicKey;
+import io.rx_cache2.Reply;
 
 /**
  * 通过Template生成对应页面的MVP和Dagger代码,请注意输入框中输入的名字必须相同
@@ -42,4 +54,20 @@ public class LoginModel extends BaseModel implements LoginContract.Model {
         this.mApplication = null;
     }
 
+    @Override
+    public Observable<BaseResult<User>> login(String account, String pwd) {
+        Observable<BaseResult<User>> users = mRepositoryManager.obtainRetrofitService(UserService.class)
+                .login(account, pwd);
+        //使用rxcache缓存,上拉刷新则不读取缓存,加载更多读取缓存
+        return mRepositoryManager.obtainCacheService(CommonCache.class)
+                .login(users
+                        , new DynamicKey(account)
+                        , new EvictDynamicKey(true))
+                .flatMap(new Function<Reply<BaseResult<User>>, ObservableSource<BaseResult<User>>>() {
+                    @Override
+                    public ObservableSource<BaseResult<User>> apply(@NonNull Reply<BaseResult<User>> listReply) throws Exception {
+                        return Observable.just(listReply.getData());
+                    }
+                });
+    }
 }

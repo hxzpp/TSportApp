@@ -1,7 +1,11 @@
 package com.transportmm.tsportapp.mvp.contract;
 
+import com.transportmm.tsportapp.mvp.model.entity.BaseResult;
+import com.transportmm.tsportapp.mvp.model.entity.User;
 import com.xinhuamm.xinhuasdk.mvp.IModel;
 import com.xinhuamm.xinhuasdk.mvp.IView;
+
+import io.reactivex.Observable;
 
 /**
  * 通过Template生成对应页面的MVP和Dagger代码,请注意输入框中输入的名字必须相同
@@ -25,6 +29,6 @@ public interface LoginContract {
 
     //Model层定义接口,外部只需关心Model返回的数据,无需关心内部细节,即是否使用缓存
     interface Model extends IModel {
-
+        Observable<BaseResult<User>> login(String account,String pwd);
     }
 }
