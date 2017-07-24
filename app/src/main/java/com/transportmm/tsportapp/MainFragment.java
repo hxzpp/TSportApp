@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.transportmm.tsportapp.mvp.ui.account.activity.LoginActivity;
 import com.transportmm.tsportapp.mvp.ui.main.fragment.HomeFragment;
+import com.transportmm.tsportapp.mvp.ui.main.fragment.MyFragment;
 import com.xinhuamm.xinhuasdk.base.fragment.HBaseFragment;
 import com.xinhuamm.xinhuasdk.di.component.AppComponent;
 import com.xinhuamm.xinhuasdk.widget.navigation.BottomNavigationViewEx;
