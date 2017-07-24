@@ -1,4 +1,4 @@
-package com.xinhuamm.xinhuasdk.util;
+package com.xinhuamm.xinhuasdk.utils;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,7 +17,7 @@ import com.xinhuamm.xinhuasdk.R;
 
 public final class HDialogHelper {
     public static AlertDialog.Builder getDialog(Context context) {
-        return new AlertDialog.Builder(context, R.style.App_Theme_Dialog_Alert);
+        return new AlertDialog.Builder(context);
     }
 
     /**
@@ -32,7 +32,7 @@ public final class HDialogHelper {
                 .setCancelable(cancelable)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("确定", null);
+                .setPositiveButton(R.string.sure, null);
     }
 
     /**
@@ -74,8 +74,8 @@ public final class HDialogHelper {
         return getDialog(context)
                 .setTitle(title)
                 .setView(view)
-                .setPositiveButton("确定", positiveListener)
-                .setNegativeButton("取消", null);
+                .setPositiveButton(R.string.sure, positiveListener)
+                .setNegativeButton(R.string.cancel, null);
     }
 
     /**
@@ -98,6 +98,7 @@ public final class HDialogHelper {
                 .setNegativeButton(negativeText, negativeListener);
     }
 
+
     /**
      * 获取一个验证对话框
      */
@@ -107,8 +108,8 @@ public final class HDialogHelper {
             DialogInterface.OnClickListener negativeListener) {
         return getDialog(context)
                 .setMessage(message)
-                .setPositiveButton("确定", positiveListener)
-                .setNegativeButton("取消", negativeListener);
+                .setPositiveButton(R.string.sure, positiveListener)
+                .setNegativeButton(R.string.cancel, negativeListener);
     }
 
     public static AlertDialog.Builder getSingleChoiceDialog(
@@ -122,7 +123,7 @@ public final class HDialogHelper {
         if (!TextUtils.isEmpty(title)) {
             builder.setTitle(title);
         }
-        builder.setNegativeButton("取消", null);
+        builder.setNegativeButton(R.string.cancel, null);
         return builder;
     }
 
@@ -193,7 +194,7 @@ public final class HDialogHelper {
             String title,
             String message,
             boolean cancelable) {
-        return getConfirmDialog(context, title, message, "确定", "取消", cancelable, null, null);
+        return getConfirmDialog(context, title, message, context.getString(R.string.sure), context.getString(R.string.cancel), cancelable, null, null);
     }
 
     /**
@@ -204,7 +205,7 @@ public final class HDialogHelper {
             String message,
             boolean cancelable,
             DialogInterface.OnClickListener positiveListener) {
-        return getConfirmDialog(context, "", message, "确定", "取消", cancelable, positiveListener, null);
+        return getConfirmDialog(context, "", message, context.getString(R.string.sure), context.getString(R.string.cancel), cancelable, positiveListener, null);
     }
 
     /**
@@ -214,7 +215,7 @@ public final class HDialogHelper {
             Context context,
             String message,
             DialogInterface.OnClickListener positiveListener) {
-        return getConfirmDialog(context, "", message, "确定", "取消", positiveListener);
+        return getConfirmDialog(context, "", message, context.getString(R.string.sure), context.getString(R.string.cancel), positiveListener);
     }
 
     /**
@@ -224,7 +225,7 @@ public final class HDialogHelper {
             Context context,
             String title,
             String message) {
-        return getConfirmDialog(context, title, message, "确定", "取消", false, null, null);
+        return getConfirmDialog(context, title, message, context.getString(R.string.sure), context.getString(R.string.cancel), false, null, null);
     }
 
     /**
@@ -277,7 +278,7 @@ public final class HDialogHelper {
             AppCompatEditText editText,
             boolean cancelable,
             DialogInterface.OnClickListener positiveListener) {
-        return getInputDialog(context, title, editText, "确定", "取消"
+        return getInputDialog(context, title, editText, context.getString(R.string.sure), context.getString(R.string.cancel)
                 , cancelable, positiveListener, null);
     }
 
@@ -290,7 +291,7 @@ public final class HDialogHelper {
             DialogInterface.OnClickListener positiveListener,
             DialogInterface.OnClickListener negativeListener) {
         return getInputDialog(
-                context, title, editText, positiveText, "取消", cancelable
+                context, title, editText, positiveText, context.getString(R.string.cancel), cancelable
                 , positiveListener, negativeListener);
     }
 
@@ -303,7 +304,7 @@ public final class HDialogHelper {
             DialogInterface.OnClickListener positiveListener,
             DialogInterface.OnClickListener negativeListener) {
         return getInputDialog(
-                context, title, editText, "确定", "取消", cancelable
+                context, title, editText, context.getString(R.string.sure), context.getString(R.string.cancel), cancelable
                 , positiveListener, negativeListener);
     }
 

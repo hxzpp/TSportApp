@@ -1,16 +1,25 @@
 package com.transportmm.tsportapp.mvp.presenter;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.transportmm.tsportapp.app.utils.RxUtils;
 import com.transportmm.tsportapp.mvp.contract.LoginContract;
+import com.transportmm.tsportapp.mvp.model.entity.BaseResult;
+import com.transportmm.tsportapp.mvp.model.entity.User;
 import com.xinhuamm.xinhuasdk.di.scope.FragmentScope;
 import com.xinhuamm.xinhuasdk.integration.AppManager;
 import com.xinhuamm.xinhuasdk.mvp.BasePresenter;
+import com.xinhuamm.xinhuasdk.utils.HDialogHelper;
 import com.xinhuamm.xinhuasdk.widget.imageloader.ImageLoader;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
 
 
 /**
@@ -43,6 +52,31 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
         this.mApplication = application;
         this.mImageLoader = imageLoader;
         this.mAppManager = appManager;
+    }
+
+    public void login(Context context) {
+
+        HDialogHelper.getProgressDialog(context).show();
+
+        mModel.login("15888033931","1016110")
+                .subscribeOn(Schedulers.io())
+                .retryWhen(new RetryWithDelay(3, 2))//遇到错误时重试,第一个参数为重试几次,第二个参数为重试的间隔
+                .doOnSubscribe(disposable -> {
+                        mRootView.showLoading();//显示下拉刷新的进度条
+                }).subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate(() -> {
+                        mRootView.hideLoading();//隐藏下拉刷新的进度条
+                })
+                .compose(RxUtils.bindToLifecycle(mRootView))//使用Rxlifecycle,使Disposable和Activity一起销毁
+                .subscribe(new ErrorHandleSubscriber<BaseResult<User>>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseResult<User> user) {
+
+                    }
+                });
+
+
     }
 
     @Override

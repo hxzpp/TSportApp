@@ -11,5 +11,7 @@
     <!--  通用背景的颜色 -->
     <color name="main_bg_color">#fff7f9f9</color>
 
+    <color name="main_focus_color">@color/colorPrimary</color>
+    <color name="main_pressure_color">@color/green</color>
     <color name="account_input_bg_color">#33ffffff</color>
 </resources>

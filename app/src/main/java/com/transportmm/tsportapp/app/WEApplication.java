@@ -1,6 +1,7 @@
-package com.transportmm.tsportapp;
+package com.transportmm.tsportapp.app;
 
 import com.squareup.leakcanary.LeakCanary;
+import com.transportmm.tsportapp.BuildConfig;
 import com.xinhuamm.xinhuasdk.base.HBaseApplication;
 
 import timber.log.Timber;

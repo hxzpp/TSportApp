@@ -160,9 +160,10 @@ public class MainActivity extends HBaseActivity implements NavigationView.OnNavi
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            startActivity(new Intent(this, LoginActivity.class));
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, LoginActivity.class));
+
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

@@ -73,6 +73,7 @@ dependencies {
     compile rootProject.ext.dependencies["annotations"]
     compile rootProject.ext.dependencies["photoview"]
     compile rootProject.ext.dependencies["boxing"]
+    compile rootProject.ext.dependencies["circleimageview"]
 
     //rx
     compile rootProject.ext.dependencies["rxjava2"]
